@@ -10,36 +10,8 @@ scrape_configs:
     static_configs:
       - targets: ['10.72.100.22:9090']
 
-  - job_name: 'mikrotik'
-    scrape_interval: 5m
-    scrape_timeout: 240s
-    static_configs:
-      - targets: ['10.72.100.1', '10.72.100.2']
-    metrics_path: /snmp
-    params:
-      module: [mikrotik]
-      auth: [public_v2]
-    relabel_configs:
-      - source_labels: [__address__]
-        target_label: __param_target
-      - source_labels: [__param_target]
-        target_label: instance
-      - target_label: __address__
-        replacement: 10.72.100.22:9116
-
-  - job_name: 'mikrotik_status'
+  - job_name: 'mikrotik_mktxp'
     scrape_interval: 30s
-    scrape_timeout: 5s
+    scrape_timeout: 25s
     static_configs:
-      - targets: ['10.72.100.1', '10.72.100.2']
-    metrics_path: /snmp
-    params:
-      module: [mikrotik_basic]
-      auth: [public_v2]
-    relabel_configs:
-      - source_labels: [__address__]
-        target_label: __param_target
-      - source_labels: [__param_target]
-        target_label: instance
-      - target_label: __address__
-        replacement: 10.72.100.22:9116
+      - targets: ['mktxp:49090']

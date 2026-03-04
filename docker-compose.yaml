@@ -39,13 +39,13 @@ services:
     networks:
       - monitoring
 
-  snmp-exporter:
-    image: prom/snmp-exporter:latest
-    container_name: snmp-exporter
+  mktxp:
+    image: guenterbailey/mktxp:latest
+    container_name: mktxp
     ports:
-      - "9116:9116"
+      - "49090:49090"
     volumes:
-      - ./snmp-exporter/snmp.yml:/etc/snmp_exporter/snmp.yml
+      - ./mktxp:/home/mktxp/mktxp
     restart: unless-stopped
     networks:
       - monitoring

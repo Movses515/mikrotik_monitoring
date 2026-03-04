@@ -19,10 +19,17 @@ scrape_configs:
     params:
       module: [mikrotik]
       auth: [public_v2]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 10.72.100.22:9116
 
   - job_name: 'mikrotik_status'
     scrape_interval: 30s
-    scrape_timeout: 10s
+    scrape_timeout: 5s
     static_configs:
       - targets: ['10.72.100.1', '10.72.100.2']
     metrics_path: /snmp

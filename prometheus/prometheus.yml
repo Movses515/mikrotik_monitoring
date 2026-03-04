@@ -14,7 +14,7 @@ scrape_configs:
     scrape_interval: 5m
     scrape_timeout: 2m
     static_configs:
-      - targets: ['10.72.100.1']
+      - targets: ['10.72.100.1', '10.72.100.2']
     metrics_path: /snmp
     params:
       module: [mikrotik]

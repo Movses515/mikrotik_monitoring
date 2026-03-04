@@ -40,7 +40,8 @@ services:
       - monitoring
 
   mktxp:
-    image: guenterbailey/mktxp:latest
+    build: ./mktxp
+    image: local/mktxp:latest
     container_name: mktxp
     ports:
       - "49090:49090"

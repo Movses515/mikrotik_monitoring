@@ -14,4 +14,4 @@ scrape_configs:
     scrape_interval: 30s
     scrape_timeout: 25s
     static_configs:
-      - targets: ['mktxp:49090']
+      - targets: ['10.72.100.22:49090']

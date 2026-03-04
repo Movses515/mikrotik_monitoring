@@ -11,7 +11,7 @@ scrape_configs:
       - targets: ['10.72.100.22:9090']
 
   - job_name: 'mikrotik_mktxp'
-    scrape_interval: 30s
-    scrape_timeout: 25s
+    scrape_interval: 1m
+    scrape_timeout: 50s
     static_configs:
-      - targets: ['mktxp:49090']
+      - targets: ['10.72.100.22:49090']

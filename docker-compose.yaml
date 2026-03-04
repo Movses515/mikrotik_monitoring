@@ -46,7 +46,8 @@ services:
     ports:
       - "49090:49090"
     volumes:
-      - ./mktxp:/home/mktxp/mktxp
+      - ./mktxp/mktxp.conf:/etc/mktxp/mktxp.conf
+    command: ["mktxp", "--cfg-dir", "/etc/mktxp", "export"]
     restart: unless-stopped
     networks:
       - monitoring

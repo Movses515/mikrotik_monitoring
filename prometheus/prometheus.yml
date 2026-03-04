@@ -17,7 +17,7 @@ scrape_configs:
       - targets: ['10.72.100.1', '10.72.100.2']
     metrics_path: /snmp
     params:
-      module: [mikrotik]
+      module: [mikrotik_basic]
       auth: [public_v2]
     relabel_configs:
       - source_labels: [__address__]

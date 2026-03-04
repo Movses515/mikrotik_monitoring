@@ -504,14 +504,14 @@
           "textMode": "auto"
         },
         "pluginVersion": "9.0.5",
-        "targets": [
+            "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "${DS_PROMETHEUS}"
             },
             "exemplar": true,
-            "expr": "sysUpTime{instance='$instance'}/100",
+            "expr": "sysUpTime{instance='$instance',job='mikrotik_status'}/100",
             "interval": "",
             "legendFormat": "",
             "refId": "A"

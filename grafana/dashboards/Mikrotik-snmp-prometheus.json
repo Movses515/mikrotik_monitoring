@@ -8573,14 +8573,14 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "definition": "query_result(ifInOctets{job=\"snmp-exporter\"})",
+          "definition": "label_values(sysUpTime, instance)",
           "hide": 0,
           "includeAll": false,
           "multi": false,
           "name": "instance",
           "options": [],
           "query": {
-            "query": "label_values(ifHCInOctets,  instance)",
+            "query": "label_values(sysUpTime, instance)",
             "refId": "Prometheus-instance-Variable-Query"
           },
           "refresh": 1,

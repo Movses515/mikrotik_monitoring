@@ -11,8 +11,18 @@ scrape_configs:
       - targets: ['10.72.100.22:9090']
 
   - job_name: 'mikrotik'
-    scrape_interval: 2m
-    scrape_timeout: 90s
+    scrape_interval: 5m
+    scrape_timeout: 240s
+    static_configs:
+      - targets: ['10.72.100.1', '10.72.100.2']
+    metrics_path: /snmp
+    params:
+      module: [mikrotik]
+      auth: [public_v2]
+
+  - job_name: 'mikrotik_status'
+    scrape_interval: 30s
+    scrape_timeout: 10s
     static_configs:
       - targets: ['10.72.100.1', '10.72.100.2']
     metrics_path: /snmp

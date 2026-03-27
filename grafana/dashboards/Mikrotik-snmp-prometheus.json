@@ -1,71 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "barchart",
-      "name": "Bar chart",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "bargauge",
-      "name": "Bar gauge",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "gauge",
-      "name": "Gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "12.3.0"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "state-timeline",
-      "name": "State timeline",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -92,7 +25,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
   "links": [
     {
       "asDropdown": false,
@@ -141,9 +73,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -200,12 +131,12 @@
         "textMode": "name",
         "wideLayout": true
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_identity_info{routerboard_name=\"$node\"}  ",
@@ -221,9 +152,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -280,12 +210,12 @@
         "textMode": "name",
         "wideLayout": true
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_uptime{routerboard_name=\"$node\"}",
@@ -301,7 +231,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -390,12 +320,12 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_installed_packages_info{routerboard_name=\"$node\"}",
@@ -445,7 +375,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -517,7 +447,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -525,7 +455,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "(1 - mktxp_system_free_memory{routerboard_name=\"$node\"} / mktxp_system_total_memory{routerboard_name=\"$node\"})*100",
@@ -534,7 +464,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -554,7 +483,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_cpu_load{routerboard_name=\"$node\"}",
@@ -566,7 +495,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "(1 - mktxp_system_free_hdd_space{routerboard_name=\"$node\"} / mktxp_system_total_hdd_space{routerboard_name=\"$node\"})*100",
@@ -576,12 +505,13 @@
           "refId": "B"
         }
       ],
+      "title": "",
       "type": "bargauge"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -669,7 +599,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -677,7 +607,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_cpu_load{routerboard_name=\"$node\"}",
@@ -709,7 +639,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -864,7 +794,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -872,7 +802,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_cpu_frequency{routerboard_name=\"$node\"}*1000000",
@@ -904,9 +834,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -948,16 +877,16 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mktxp_system_cpu_frequency{routerboard_name=\"$node\"}*1000000",
+          "expr": "mktxp_system_cpu_load{router=\"$router\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "{{cpu}} ",
@@ -971,7 +900,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -1030,12 +959,12 @@
         "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_routerboard_temperature{routerboard_name=\"$node\"}  ",
@@ -1047,11 +976,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_cpu_temperature{routerboard_name=\"$node\"}  ",
-          "hide": false,
           "legendFormat": "__auto",
           "range": true,
           "refId": "B"
@@ -1063,7 +991,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -1121,7 +1049,7 @@
         "textMode": "name",
         "wideLayout": true
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -1129,7 +1057,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_uptime{routerboard_name=\"$node\"}",
@@ -1138,7 +1066,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -1158,11 +1085,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_update_available{routerboard_name=\"$node\"}",
-          "hide": false,
           "instant": false,
           "legendFormat": "Latest available: {{newest_version}}",
           "range": true,
@@ -1175,7 +1101,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -1233,7 +1159,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -1241,7 +1167,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_uptime{routerboard_name=\"$node\"}",
@@ -1250,7 +1176,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -1274,7 +1199,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -1368,12 +1293,12 @@
           }
         ]
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_active_users_info{routerboard_name=\"$node\"}",
@@ -1424,7 +1349,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -1577,7 +1502,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -1585,7 +1510,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_total_hdd_space{routerboard_name=\"$node\"} - mktxp_system_free_hdd_space{routerboard_name=\"$node\"}",
@@ -1616,7 +1541,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_total_hdd_space{routerboard_name=\"$node\"}",
@@ -1648,9 +1573,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1697,7 +1621,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -1705,7 +1629,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_system_routerboard_voltage{routerboard_name=\"$node\"}",
@@ -1714,7 +1638,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -1738,9 +1661,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1797,12 +1719,12 @@
         "textMode": "name",
         "wideLayout": true
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_public_ip_address_info{routerboard_name=\"$node\"}",
@@ -1818,9 +1740,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1877,12 +1798,12 @@
         "textMode": "name",
         "wideLayout": true
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_public_ip_address_info{routerboard_name=\"$node\"}",
@@ -1894,11 +1815,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_public_ip_address_info{routerboard_name=\"$node\"}",
-          "hide": false,
           "instant": true,
           "interval": "",
           "legendFormat": "{{dns_name}}",
@@ -1924,9 +1844,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "decimals": 0,
@@ -1985,7 +1904,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -1993,7 +1912,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_ip_pool_used{routerboard_name=\"$node\"} ",
@@ -2002,7 +1921,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -2026,7 +1944,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -2151,12 +2069,12 @@
           }
         ]
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_dhcp_lease_info{routerboard_name=\"$node\"}",
@@ -2211,9 +2129,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "decimals": 0,
@@ -2272,7 +2189,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -2280,7 +2197,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_dhcp_lease_active_count{routerboard_name=\"$node\"}",
@@ -2289,7 +2206,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -2313,9 +2229,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "decimals": 0,
@@ -2374,7 +2289,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -2382,7 +2297,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum(mktxp_dhcp_lease_active_count{routerboard_name=\"$node\"})",
@@ -2391,7 +2306,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -2428,9 +2342,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "mappings": [
@@ -2490,12 +2403,12 @@
         "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_routes_total_routes{routerboard_name=\"$node\"}",
@@ -2512,7 +2425,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -2566,7 +2479,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -2574,7 +2487,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_routes_protocol_count{routerboard_name=\"$node\"}",
@@ -2583,7 +2496,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -2607,9 +2519,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "mappings": [
@@ -2678,12 +2589,12 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_interface_full_duplex{routerboard_name=\"$node\"}",
@@ -2700,7 +2611,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -2796,7 +2707,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -2804,7 +2715,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_interface_rx_error_total{routerboard_name=\"$node\"}[4m])",
@@ -2813,7 +2724,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -2833,12 +2743,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_interface_tx_error_total{routerboard_name=\"$node\"}[4m])",
           "format": "time_series",
-          "hide": false,
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "Out Errors | {{name}}",
@@ -2852,9 +2761,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "mappings": [
@@ -2923,12 +2831,12 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_interface_status{routerboard_name=\"$node\"}",
@@ -2945,7 +2853,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -2989,12 +2897,12 @@
         "cellHeight": "sm",
         "showHeader": true
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_interface_rate{routerboard_name=\"$node\"}",
@@ -3035,7 +2943,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -3159,12 +3067,12 @@
           }
         ]
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_poe_info{routerboard_name=\"$node\"}",
@@ -3222,9 +3130,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -3341,7 +3248,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -3349,7 +3256,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_interface_rx_byte_total{routerboard_name=\"$node\"}[4m])*8",
@@ -3358,7 +3265,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -3381,7 +3287,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_interface_tx_byte_total{routerboard_name=\"$node\"}[4m])*8",
@@ -3390,7 +3296,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -3427,7 +3332,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -3481,7 +3386,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -3489,7 +3394,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_firewall_address_list_all_count{routerboard_name=\"$node\"}",
@@ -3498,7 +3403,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -3522,7 +3426,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -3576,7 +3480,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -3584,7 +3488,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_firewall_address_list_selected_count{routerboard_name=\"$node\"}",
@@ -3593,7 +3497,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -3617,7 +3520,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -3699,12 +3602,12 @@
           }
         ]
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_firewall_address_list{routerboard_name=\"$node\"}",
@@ -3763,7 +3666,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -3870,12 +3773,12 @@
           }
         ]
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_connection_stats{routerboard_name=\"$node\"}",
@@ -3925,7 +3828,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -4021,12 +3924,12 @@
         "xTickLabelRotation": 0,
         "xTickLabelSpacing": 0
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -4044,9 +3947,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4131,7 +4033,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -4139,7 +4041,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_firewall_filter_total{routerboard_name=\"$node\", log=\"1\"}[4m])*8",
@@ -4148,7 +4050,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -4172,9 +4073,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4259,7 +4159,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -4267,7 +4167,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_firewall_raw_total{routerboard_name=\"$node\", log=\"1\"}[4m])*8",
@@ -4276,7 +4176,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -4300,9 +4199,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4387,7 +4285,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -4395,7 +4293,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_firewall_filter_total{routerboard_name=\"$node\"}[4m])*8",
@@ -4404,7 +4302,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -4428,9 +4325,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4515,7 +4411,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -4523,7 +4419,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_firewall_raw_total{routerboard_name=\"$node\"}[4m])*8",
@@ -4532,7 +4428,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -4569,9 +4464,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4642,7 +4536,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -4650,7 +4544,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "max_over_time(mktxp_netwatch_status{routerboard_name=\"$node\"}[1m])",
@@ -4659,7 +4553,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -4683,7 +4576,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -4769,12 +4662,12 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_netwatch_info{routerboard_name=\"$node\"}",
@@ -5454,7 +5347,6 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -5577,7 +5469,6 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -5740,7 +5631,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -5772,7 +5662,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -5892,7 +5781,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -6012,7 +5900,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -6053,7 +5940,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -6136,12 +6023,12 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_capsman_remote_caps_info{routerboard_name=\"$node\"}",
@@ -6188,7 +6075,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -6300,12 +6187,12 @@
           }
         ]
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_capsman_clients_devices_info{routerboard_name=\"$node\"}",
@@ -6357,9 +6244,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "decimals": 0,
@@ -6418,7 +6304,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -6426,7 +6312,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_capsman_registrations_count{routerboard_name=\"$node\"}",
@@ -6435,7 +6321,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -6455,7 +6340,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum(mktxp_capsman_registrations_count{routerboard_name=\"$node\"})",
@@ -6471,7 +6356,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -6541,7 +6426,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -6549,7 +6434,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_capsman_clients_signal_strength{routerboard_name=\"$node\"}",
@@ -6558,7 +6443,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -6582,7 +6466,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -6667,7 +6551,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "application": {
@@ -6675,7 +6559,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_capsman_clients_signal_strength{routerboard_name=\"$node\"}",
@@ -6684,7 +6568,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -6708,7 +6591,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -6834,7 +6717,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_capsman_clients_tx_bytes_total{routerboard_name=\"$node\"}[4m])*8",
@@ -6843,7 +6726,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -6866,7 +6748,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_capsman_clients_rx_bytes_total{routerboard_name=\"$node\"}[4m])*8",
@@ -6875,7 +6757,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -6911,7 +6792,6 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7021,7 +6901,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -7053,7 +6932,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -7079,7 +6957,6 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7191,7 +7068,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -7223,7 +7099,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -7249,7 +7124,6 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7361,7 +7235,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -7393,7 +7266,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -7419,7 +7291,6 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7531,7 +7402,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -7563,7 +7433,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -7603,7 +7472,6 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7713,7 +7581,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -7739,7 +7606,6 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7851,7 +7717,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -7877,7 +7742,6 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7989,7 +7853,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -8015,7 +7878,6 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -8127,7 +7989,6 @@
               "group": {
                 "filter": "Network"
               },
-              "hide": false,
               "host": {
                 "filter": "MikroTik Router"
               },
@@ -8168,7 +8029,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -8309,7 +8170,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_kid_control_device_info{routerboard_name=\"$node\"}",
@@ -8367,9 +8228,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -8498,7 +8358,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_kid_control_device_rate_down{routerboard_name=\"$node\"}*8",
@@ -8507,7 +8367,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -8527,11 +8386,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_kid_control_device_rate_up{routerboard_name=\"$node\"}*8",
-          "hide": false,
           "instant": false,
           "legendFormat": "Up | {{ dhcp_name }}",
           "range": true,
@@ -8544,9 +8402,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -8642,7 +8499,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "mktxp_kid_control_device_idle_time{routerboard_name=\"$node\"}",
@@ -8651,7 +8508,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -8675,7 +8531,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -8803,7 +8659,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_kid_control_device_bytes_down_total{routerboard_name=\"$node\"}[4m])*8",
@@ -8812,7 +8668,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -8835,7 +8690,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_kid_control_device_bytes_up_total{routerboard_name=\"$node\"}[4m])*8",
@@ -8844,7 +8699,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -8881,7 +8735,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -8955,7 +8809,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_collection_time_total{routerboard_name=\"$node\"}[4m])  ",
@@ -8964,7 +8818,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -8988,7 +8841,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -9080,7 +8933,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "rate(mktxp_collection_time_total{routerboard_name=\"$node\"}[4m])",
@@ -9089,7 +8942,6 @@
           "group": {
             "filter": "Network"
           },
-          "hide": false,
           "host": {
             "filter": "MikroTik Router"
           },
@@ -9109,7 +8961,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum(rate(mktxp_collection_time_total{routerboard_name=\"$node\"}[4m]))",
@@ -9125,7 +8977,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -9217,7 +9069,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "expr": "mktxp_internet_bandwidth",
           "instant": false,
@@ -9232,7 +9084,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -9324,7 +9176,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "expr": "mktxp_internet_latency",
           "instant": false,
@@ -9347,10 +9199,13 @@
   "templating": {
     "list": [
       {
-        "current": {},
+        "current": {
+          "text": "CCR1",
+          "value": "CCR1"
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "label_values(mktxp_system_identity_info, routerboard_name)",
         "includeAll": false,
@@ -9363,6 +9218,7 @@
         },
         "refresh": 1,
         "regex": "",
+        "regexApplyTo": "value",
         "sort": 1,
         "type": "query"
       },
@@ -9383,10 +9239,9 @@
     "to": "now"
   },
   "timepicker": {},
-  "timezone": "",
+  "timezone": "browser",
   "title": "Mikrotik MKTXP Exporter",
   "uid": "78d5fa8d-8a24-4a63-bfa7-802d55bb1637",
-  "version": 3,
-  "weekStart": "",
-  "gnetId": 13679
+  "version": 5,
+  "weekStart": ""
 }

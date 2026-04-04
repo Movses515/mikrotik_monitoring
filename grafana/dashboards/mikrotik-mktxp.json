@@ -127,7 +127,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "textMode": "name",
         "wideLayout": true
       },
@@ -206,7 +206,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "textMode": "name",
         "wideLayout": true
       },
@@ -444,7 +444,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -957,7 +957,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true,
         "sizing": "auto",
-        "text": {}
+        "text": {"valueSize": 18, "titleSize": 12}
       },
       "pluginVersion": "12.4.0",
       "targets": [
@@ -1045,7 +1045,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "textMode": "name",
         "wideLayout": true
       },
@@ -1155,7 +1155,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "textMode": "auto",
         "wideLayout": true
       },
@@ -1617,7 +1617,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "textMode": "value",
         "wideLayout": true
       },
@@ -1715,7 +1715,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "textMode": "name",
         "wideLayout": true
       },
@@ -1794,7 +1794,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "textMode": "name",
         "wideLayout": true
       },
@@ -1901,7 +1901,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -2186,7 +2186,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -2286,7 +2286,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -2401,7 +2401,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true,
         "sizing": "auto",
-        "text": {}
+        "text": {"valueSize": 18, "titleSize": 12}
       },
       "pluginVersion": "12.4.0",
       "targets": [
@@ -2476,7 +2476,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -2586,7 +2586,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -2828,7 +2828,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -3383,7 +3383,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -3477,7 +3477,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -6301,7 +6301,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -6423,7 +6423,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
@@ -8798,7 +8798,7 @@
         },
         "showUnfilled": true,
         "sizing": "auto",
-        "text": {},
+        "text": {"valueSize": 18, "titleSize": 12},
         "valueMode": "color"
       },
       "pluginVersion": "12.3.0",

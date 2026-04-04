@@ -20,7 +20,7 @@ groups:
   - name: mikrotik_interface_alerts
     rules:
       - alert: InterfaceDown
-        expr: mktxp_interface_running{name!~".*loopback.*"} == 0 and mktxp_interface_disabled == 0
+        expr: mktxp_interface_running{name!~".*loopback.*"} == 0 and mktxp_interface_disabled == 0 and max_over_time(mktxp_interface_running{name!~".*loopback.*"}[10m]) == 1
         for: 1m
         labels:
           severity: warning

@@ -938,7 +938,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 8,
         "w": 2,
         "x": 0,
         "y": 4
@@ -1862,14 +1862,19 @@
               },
               {
                 "color": "#EAB839",
-                "value": 30
+                "value": 150
+              },
+              {
+                "color": "orange",
+                "value": 200
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 250
               }
             ]
-          }
+          },
+          "max": 254
         },
         "overrides": []
       },

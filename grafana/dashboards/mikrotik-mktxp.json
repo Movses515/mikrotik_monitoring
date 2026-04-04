@@ -945,8 +945,8 @@
       },
       "id": 59,
       "options": {
-        "minVizHeight": 75,
-        "minVizWidth": 75,
+        "minVizHeight": 120,
+        "minVizWidth": 120,
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -957,8 +957,7 @@
         },
         "showThresholdLabels": false,
         "showThresholdMarkers": true,
-        "sizing": "auto",
-        "text": {"valueSize": 18, "titleSize": 12}
+        "sizing": "auto"
       },
       "pluginVersion": "12.4.0",
       "targets": [

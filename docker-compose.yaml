@@ -40,8 +40,7 @@ services:
       - monitoring
 
   mktxp:
-    build: ./mktxp
-    image: local/mktxp:latest
+    image: ghcr.io/akpw/mktxp:latest
     container_name: mktxp
     ports:
       - "49090:49090"

@@ -2780,7 +2780,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
+        "h": 11,
         "w": 6,
         "x": 0,
         "y": 41
@@ -2870,7 +2870,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
+        "h": 11,
         "w": 6,
         "x": 6,
         "y": 41
@@ -2917,193 +2917,6 @@
               "Value": "Rate",
               "name": "Interface",
               "routerboard_name": ""
-            }
-          }
-        }
-      ],
-      "type": "table"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "fixed"
-          },
-          "custom": {
-            "align": "center",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "filterable": false,
-            "footer": {
-              "reducers": []
-            },
-            "inspect": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "__name__"
-            },
-            "properties": [
-              {
-                "id": "displayName"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "mac_address"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 231
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "DHCP VLAN"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 227
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "active_address"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 240
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Host Name"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 383
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Comment"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 360
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 12,
-        "x": 0,
-        "y": 48
-      },
-      "id": 85,
-      "options": {
-        "cellHeight": "sm",
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "active_address"
-          }
-        ]
-      },
-      "pluginVersion": "12.4.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "mktxp_poe_info{routerboard_name=\"$node\"}",
-          "format": "table",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "title": "POE",
-      "transformations": [
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "Time": true,
-              "Value": true,
-              "__name__": true,
-              "instance": true,
-              "job": true,
-              "routerboard_address": true,
-              "routerboard_name": true
-            },
-            "indexByName": {
-              "Time": 9,
-              "Value": 13,
-              "__name__": 8,
-              "active_address": 5,
-              "address": 4,
-              "comment": 1,
-              "expires_after": 6,
-              "host_name": 0,
-              "instance": 7,
-              "job": 10,
-              "mac_address": 3,
-              "routerboard_address": 11,
-              "routerboard_name": 12,
-              "server": 2
-            },
-            "renameByName": {
-              "comment": "Comment",
-              "host_name": "Host Name",
-              "name": "Interface",
-              "poe_out": "State",
-              "poe_out_status": "Status",
-              "poe_priority": "Priority",
-              "server": "DHCP Server"
             }
           }
         }
@@ -4505,6 +4318,6 @@
   "timezone": "browser",
   "title": "Mikrotik MKTXP Exporter",
   "uid": "78d5fa8d-8a24-4a63-bfa7-802d55bb1637",
-  "version": 7,
+  "version": 8,
   "weekStart": ""
 }

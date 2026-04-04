@@ -2810,7 +2810,7 @@
         "sizing": "auto",
         "text": {
           "titleSize": 12,
-          "valueSize": 18
+          "valueSize": 13
         },
         "valueMode": "color"
       },
@@ -4318,6 +4318,6 @@
   "timezone": "browser",
   "title": "Mikrotik MKTXP Exporter",
   "uid": "78d5fa8d-8a24-4a63-bfa7-802d55bb1637",
-  "version": 8,
+  "version": 9,
   "weekStart": ""
 }

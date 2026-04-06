@@ -21,13 +21,11 @@ services:
       - "host.docker.internal:host-gateway"
     restart: unless-stopped
     networks:
-      - monitoring
+      - intermax-apps-network
 
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
-    ports:
-      - "3000:3000"
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/datasources:/etc/grafana/provisioning/datasources
@@ -35,9 +33,17 @@ services:
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_ROOT_URL=https://monitoring.intermax.am
+      - GF_SERVER_DOMAIN=monitoring.intermax.am
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.rule=Host(`monitoring.intermax.am`)"
+      - "traefik.http.routers.grafana.entrypoints=websecure"
+      - "traefik.http.routers.grafana.tls.certresolver=letsencrypt"
+      - "traefik.http.services.grafana.loadbalancer.server.port=3000"
     restart: unless-stopped
     networks:
-      - monitoring
+      - intermax-apps-network
 
   alertmanager:
     image: prom/alertmanager:latest
@@ -51,7 +57,7 @@ services:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
     restart: unless-stopped
     networks:
-      - monitoring
+      - intermax-apps-network
 
   mktxp:
     image: ghcr.io/akpw/mktxp:latest
@@ -63,12 +69,12 @@ services:
     command: ["mktxp", "--cfg-dir", "/etc/mktxp", "export"]
     restart: unless-stopped
     networks:
-      - monitoring
+      - intermax-apps-network
 
 volumes:
   prometheus_data:
   grafana_data:
 
 networks:
-  monitoring:
-    driver: bridge
+  intermax-apps-network:
+    external: true

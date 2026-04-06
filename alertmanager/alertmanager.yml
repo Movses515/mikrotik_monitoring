@@ -22,3 +22,14 @@ receivers:
           {{ if .Labels.name }}<b>Interface:</b> {{ .Labels.name }}{{ end }}
           {{ if .Annotations.description }}{{ .Annotations.description }}{{ end }}
           {{ end }}
+      - bot_token_file: '/run/secrets/telegram_bot_token'
+        chat_id: 1025115778
+        parse_mode: 'HTML'
+        message: |
+          {{ range .Alerts }}
+          {{ if eq .Status "firing" }}🔴{{ else }}🟢{{ end }} <b>{{ .Labels.alertname }}</b>
+          <b>Status:</b> {{ .Status | toUpper }}
+          {{ if .Labels.routerboard_name }}<b>Router:</b> {{ .Labels.routerboard_name }}{{ end }}
+          {{ if .Labels.name }}<b>Interface:</b> {{ .Labels.name }}{{ end }}
+          {{ if .Annotations.description }}{{ .Annotations.description }}{{ end }}
+          {{ end }}

@@ -1,195 +1,173 @@
-# MikroTik Monitoring with Prometheus, Grafana, and SNMP
+# MikroTik Monitoring
 
-This project provides a complete monitoring solution for MikroTik devices using Prometheus, Grafana, and SNMP exporter running in Docker containers.
+Monitoring solution for MikroTik routers using mktxp, Prometheus, Grafana, and Alertmanager with Telegram notifications.
+
+## Stack
+
+| Service | Port | Purpose |
+|---------|------|---------|
+| **Prometheus** | 9090 | Metrics storage & alert evaluation |
+| **Grafana** | 3000 | Dashboard visualization |
+| **mktxp** | 49090 | MikroTik RouterOS API exporter |
+| **Alertmanager** | 9093 | Alert routing & Telegram notifications |
+
+## Metrics Collected
+
+- **System**: CPU load, memory, uptime, temperature, fan speeds, HDD space, power consumption
+- **Interfaces**: traffic (rx/tx bytes, packets), errors, drops, link status, SFP info
+- **DHCP**: leases, active count per server
+- **IP Pools**: address usage per pool
+- **Queues**: simple queue rates, bytes, dropped, queued
+- **Public IP**: cloud address lookup
+- **Voltage/Power**: PSU voltage (CCR1072 only)
+
+## Alerts
+
+| Alert | Condition | Duration |
+|-------|-----------|----------|
+| MikroTikDeviceDown | Exporter unreachable | 2 min |
+| MikroTikRouterUnreachable | Router stops reporting | 3 min |
+| InterfaceDown | Active interface goes down | 1 min |
+| InterfaceHighErrorRate | > 10 errors/sec | 5 min |
+| NoTrafficOnInterface | WAN interface zero traffic | 5 min |
+| HighCPULoad | CPU > 90% | 5 min |
+| HighMemoryUsage | Memory > 90% | 5 min |
+| HighTemperature | CPU temp > 85°C | 2 min |
+| IPPoolAlmostFull | Pool > 240/254 used | 5 min |
+
+Alert thresholds can be adjusted in `prometheus/rules/mikrotik_alerts.yml`.
 
 ## Prerequisites
 
-- Docker and Docker Compose installed
-- MikroTik device with SNMP enabled
-- Network access to the MikroTik device (10.72.100.1)
+- Docker and Docker Compose
+- MikroTik routers with RouterOS API enabled (port 8728)
+- API user with read-only access on each router
+- Telegram bot token and chat ID (for alerts)
 
-## MikroTik SNMP Configuration
+## MikroTik Router Setup
 
-Before starting the monitoring stack, ensure SNMP is enabled on your MikroTik device:
+On each MikroTik, create a monitoring user:
 
-1. Connect to your MikroTik device via WinBox or SSH
-2. Go to **IP → SNMP**
-3. Enable SNMP with the following settings:
-   - **Enabled**: Yes
-   - **Contact**: Your contact information
-   - **Location**: Device location
-   - **Community**: `public` (or change in snmp.yml)
-   - **Version**: 2c
+```
+/user group add name=monitoring policy=api,read,winbox
+/user add name=prometheus password=YOUR_PASSWORD group=monitoring
+```
+
+Enable the API service:
+
+```
+/ip service enable api
+```
 
 ## Quick Start
 
-1. **Configure your MikroTik IP address** (if different from 10.72.100.1):
+1. **Clone and configure mktxp**:
+
+   Edit `mktxp/mktxp.conf` — set hostnames, usernames, and passwords for each router.
+
+2. **Set up Telegram bot token**:
+
    ```bash
-   # Edit prometheus/prometheus.yml file
-   # Change targets: ['10.72.100.1'] to your MikroTik IP
+   echo "YOUR_BOT_TOKEN_HERE" > alertmanager/telegram_bot_token
    ```
 
-2. **Start the monitoring stack**:
+   Edit `alertmanager/alertmanager.yml` and set your `chat_id`.
+
+   > **The token file is gitignored and must be created manually on each deployment.**
+
+3. **Start the stack**:
+
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
-3. **Access the services**:
-   - **Grafana**: http://10.72.100.28:3000 (admin/admin)
-   - **Prometheus**: http://10.72.100.28:9090
-   - **SNMP Exporter**: http://10.72.100.28:9116
+4. **Access services**:
 
-## Services Overview
-
-### Prometheus
-- **Port**: 9090
-- **Purpose**: Metrics collection and storage
-- **Configuration**: `prometheus/prometheus.yml`
-- **Data retention**: 200 hours
-
-### Grafana
-- **Port**: 3000
-- **Purpose**: Visualization and dashboards
-- **Default credentials**: admin/admin
-- **Note**: No pre-configured dashboards included
-
-### SNMP Exporter
-- **Port**: 9116
-- **Purpose**: SNMP to Prometheus metrics conversion
-- **Configuration**: `snmp-exporter/snmp.yml`
-
-## Monitored Metrics
-
-The setup monitors the following MikroTik metrics:
-
-- **System Information**:
-  - System uptime (`snmp_sysUpTime`)
-  - System name (`snmp_sysName`)
-  - System location (`snmp_sysLocation`)
-
-- **CPU and Memory**:
-  - CPU usage (`snmp_hrProcessorLoad`)
-  - Memory usage (`snmp_hrStorageUsed`, `snmp_hrStorageSize`)
-
-- **Network Interfaces**:
-  - Interface descriptions (`snmp_ifDescr`)
-  - Interface types (`snmp_ifType`)
-  - Interface speeds (`snmp_ifSpeed`)
-  - Interface operational status (`snmp_ifOperStatus`)
-  - Incoming/outgoing traffic (`snmp_ifInOctets`, `snmp_ifOutOctets`)
-  - Interface errors (`snmp_ifInErrors`, `snmp_ifOutErrors`)
-
-- **MikroTik Specific**:
-  - CPU load (`snmp_mikrotik_cpu_load`)
-  - Memory usage (`snmp_mikrotik_memory_usage`)
-  - Temperature (`snmp_mikrotik_temperature`)
-  - Voltage (`snmp_mikrotik_voltage`)
-  - Fan speed (`snmp_mikrotik_fan_speed`)
+   - **Grafana**: http://YOUR_SERVER_IP:3000 (admin/admin)
+   - **Prometheus**: http://YOUR_SERVER_IP:9090
+   - **Alertmanager**: http://YOUR_SERVER_IP:9093
 
 ## Configuration Files
 
-- `docker-compose.yaml`: Main Docker Compose configuration
-- `prometheus/prometheus.yml`: Prometheus scrape configuration
-- `snmp-exporter/snmp.yml`: SNMP OID mappings for MikroTik
+| File | Purpose |
+|------|---------|
+| `docker-compose.yaml` | Service orchestration |
+| `prometheus/prometheus.yml` | Scrape targets & alerting config |
+| `prometheus/rules/mikrotik_alerts.yml` | Alert rules & thresholds |
+| `alertmanager/alertmanager.yml` | Alert routing & Telegram config |
+| `alertmanager/telegram_bot_token` | Telegram bot token (**gitignored**) |
+| `mktxp/mktxp.conf` | Router connections & metric collection settings |
+| `grafana/datasources/datasource.yml` | Prometheus datasource config |
+| `grafana/dashboards/dashboard.yml` | Dashboard provisioning config |
+| `grafana/dashboards/mikrotik-mktxp.json` | Grafana dashboard definition |
 
-## Testing SNMP Connectivity
+## Security
 
-1. **Test SNMP connectivity**:
-   ```bash
-   snmpwalk -v2c -c public 10.72.100.1 1.3.6.1.2.1.1.1.0
-   ```
+### Secrets Management
 
-2. **Test SNMP exporter**:
-   ```bash
-   curl "http://10.72.100.28:9116/snmp?target=10.72.100.1&module=mikrotik&auth=public_v2"
-   ```
+The Telegram bot token is stored in a separate file `alertmanager/telegram_bot_token` which is **excluded from git** via `.gitignore`. The `alertmanager.yml` config references this file via `bot_token_file` so the token never appears in committed code.
 
-3. **Check Prometheus targets**:
-   - Visit http://10.72.100.28:9090/targets
-   - Ensure MikroTik target is UP
-
-## Troubleshooting
-
-### SNMP Connection Issues
-
-1. **Check SNMP is enabled** on MikroTik:
-   ```
-   /ip snmp print
-   ```
-
-2. **Test SNMP connectivity**:
-   ```bash
-   snmpwalk -v2c -c public 10.72.100.1 1.3.6.1.2.1.1.1.0
-   ```
-
-3. **Check firewall rules** on MikroTik:
-   ```
-   /ip firewall filter print
-   ```
-
-### Container Issues
-
-1. **Check container logs**:
-   ```bash
-   docker-compose logs prometheus
-   docker-compose logs grafana
-   docker-compose logs snmp-exporter
-   ```
-
-2. **Restart services**:
-   ```bash
-   docker-compose restart
-   ```
-
-3. **Check Prometheus targets**:
-   - Visit http://10.72.100.28:9090/targets
-   - Ensure MikroTik target is UP
-
-## Customization
-
-### Adding More Metrics
-
-To monitor additional MikroTik OIDs:
-
-1. Edit `snmp-exporter/snmp.yml`
-2. Add new OIDs to the `walk` section
-3. Restart the SNMP exporter:
-   ```bash
-   docker-compose restart snmp-exporter
-   ```
-
-### Creating Dashboards
-
-1. Access Grafana at http://10.72.100.28:3000
-2. Create new dashboards
-3. Use SNMP metrics in your queries:
-   - `snmp_sysUpTime`
-   - `snmp_hrProcessorLoad`
-   - `snmp_ifInOctets`
-   - `snmp_ifOutOctets`
-
-## Security Considerations
-
-- Change default Grafana password
-- Use SNMP community strings other than 'public' in production
-- Consider SNMPv3 for enhanced security
-- Restrict network access to monitoring ports
-
-## Stopping the Services
+To set up on a new server:
 
 ```bash
-docker-compose down
+echo "YOUR_BOT_TOKEN" > alertmanager/telegram_bot_token
 ```
 
-To remove all data volumes:
+### If You Accidentally Pushed Secrets
+
+1. **Revoke the compromised bot token immediately**:
+   - Open Telegram, go to [@BotFather](https://t.me/BotFather)
+   - Send `/revoke`
+   - Select your bot
+   - BotFather will issue a new token
+
+2. **Update** `alertmanager/alertmanager.yml` with the new token
+
+3. **Remove the file from git history**:
+
+   ```bash
+   git filter-branch --force --index-filter \
+     "git rm --cached --ignore-unmatch alertmanager/alertmanager.yml" \
+     --prune-empty --tag-name-filter cat -- --all
+   git push origin --force --all
+   ```
+
+4. **Restart Alertmanager**:
+
+   ```bash
+   docker compose restart alertmanager
+   ```
+
+### Other Recommendations
+
+- Change the default Grafana password (`GF_SECURITY_ADMIN_PASSWORD` in `docker-compose.yaml`)
+- Restrict network access to monitoring ports (9090, 3000, 9093) via firewall
+- Use strong passwords for the MikroTik API user
+- Consider placing Grafana behind a reverse proxy with HTTPS
+
+## Useful Commands
+
 ```bash
-docker-compose down -v
+# Start all services
+docker compose up -d
+
+# Restart a single service
+docker compose restart prometheus
+
+# View logs
+docker compose logs -f alertmanager
+
+# Check Prometheus alert rules
+# Visit http://YOUR_SERVER_IP:9090/alerts
+
+# Send a test alert to Telegram
+curl -XPOST http://localhost:9093/api/v2/alerts \
+  -H "Content-Type: application/json" \
+  -d '[{"labels":{"alertname":"TestAlert","severity":"warning","routerboard_name":"Test"},"annotations":{"description":"Test alert from InterMax Monitoring."}}]'
+
+# Stop all services
+docker compose down
+
+# Stop and remove all data
+docker compose down -v
 ```
-
-## Support
-
-For issues related to:
-- **MikroTik SNMP**: Check MikroTik documentation
-- **Prometheus**: Visit [Prometheus documentation](https://prometheus.io/docs/)
-- **Grafana**: Visit [Grafana documentation](https://grafana.com/docs/)
-- **SNMP Exporter**: Visit [SNMP Exporter documentation](https://github.com/prometheus/snmp_exporter)

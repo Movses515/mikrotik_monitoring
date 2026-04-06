@@ -113,31 +113,6 @@ To set up on a new server:
 echo "YOUR_BOT_TOKEN" > alertmanager/telegram_bot_token
 ```
 
-### If You Accidentally Pushed Secrets
-
-1. **Revoke the compromised bot token immediately**:
-   - Open Telegram, go to [@BotFather](https://t.me/BotFather)
-   - Send `/revoke`
-   - Select your bot
-   - BotFather will issue a new token
-
-2. **Update** `alertmanager/alertmanager.yml` with the new token
-
-3. **Remove the file from git history**:
-
-   ```bash
-   git filter-branch --force --index-filter \
-     "git rm --cached --ignore-unmatch alertmanager/alertmanager.yml" \
-     --prune-empty --tag-name-filter cat -- --all
-   git push origin --force --all
-   ```
-
-4. **Restart Alertmanager**:
-
-   ```bash
-   docker compose restart alertmanager
-   ```
-
 ### Other Recommendations
 
 - Change the default Grafana password (`GF_SECURITY_ADMIN_PASSWORD` in `docker-compose.yaml`)

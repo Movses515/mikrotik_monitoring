@@ -2649,20 +2649,7 @@
           },
           "unit": "pps"
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byRegexp",
-              "options": "/Out/"
-            },
-            "properties": [
-              {
-                "id": "custom.transform",
-                "value": "negative-Y"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 15,
@@ -2902,10 +2889,6 @@
             },
             "properties": [
               {
-                "id": "custom.transform",
-                "value": "negative-Y"
-              },
-              {
                 "id": "color",
                 "value": {
                   "mode": "continuous-GrYlRd"
@@ -2965,7 +2948,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "rate(mktxp_interface_rx_byte_total{routerboard_name=\"$node\"}[4m])*8",
+          "expr": "irate(mktxp_interface_rx_byte_total{routerboard_name=\"$node\"}[2m])*8",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -2996,7 +2979,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "rate(mktxp_interface_tx_byte_total{routerboard_name=\"$node\"}[4m])*8",
+          "expr": "irate(mktxp_interface_tx_byte_total{routerboard_name=\"$node\"}[2m])*8",
           "format": "time_series",
           "functions": [],
           "group": {

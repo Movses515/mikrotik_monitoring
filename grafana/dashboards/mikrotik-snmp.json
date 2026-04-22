@@ -1381,6 +1381,22 @@
                       "3": {
                         "color": "yellow",
                         "text": "Testing"
+                      },
+                      "4": {
+                        "color": "red",
+                        "text": "DOWN"
+                      },
+                      "5": {
+                        "color": "red",
+                        "text": "DOWN"
+                      },
+                      "6": {
+                        "color": "red",
+                        "text": "DOWN"
+                      },
+                      "7": {
+                        "color": "red",
+                        "text": "DOWN"
                       }
                     },
                     "type": "value"
@@ -1456,7 +1472,7 @@
         "sortBy": [
           {
             "desc": false,
-            "displayName": "Name"
+            "displayName": "Status"
           }
         ]
       },

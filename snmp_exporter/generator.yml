@@ -1,0 +1,85 @@
+auths:
+  intermax:
+    community: intermax_monitoring
+    version: 2
+
+modules:
+  mikrotik:
+    walk:
+      - sysDescr
+      - sysUpTime
+      - sysName
+      - sysLocation
+      - ifTable
+      - ifXTable
+      - ipAddrTable
+      - hrSystemUptime
+      - hrSystemDate
+      - hrStorageTable
+      - hrDeviceTable
+      - hrProcessorTable
+      - mtxrHealth
+      - mtxrSystem
+      - mtxrLicense
+      - mtxrNeighbor
+      - mtxrInterfaceStats
+      - mtxrPOE
+
+    lookups:
+      - source_indexes: [ifIndex]
+        lookup: ifDescr
+        drop_source_indexes: false
+      - source_indexes: [ifIndex]
+        lookup: ifAlias
+        drop_source_indexes: false
+      - source_indexes: [ifIndex]
+        lookup: ifName
+        drop_source_indexes: false
+      - source_indexes: [hrStorageIndex]
+        lookup: hrStorageDescr
+        drop_source_indexes: false
+      - source_indexes: [hrDeviceIndex]
+        lookup: hrDeviceDescr
+        drop_source_indexes: false
+
+    overrides:
+      ifAlias:
+        type: DisplayString
+      ifDescr:
+        type: DisplayString
+      ifName:
+        type: DisplayString
+      ifPhysAddress:
+        type: DisplayString
+      hrStorageDescr:
+        type: DisplayString
+      hrDeviceDescr:
+        type: DisplayString
+      sysDescr:
+        type: DisplayString
+      sysName:
+        type: DisplayString
+      sysLocation:
+        type: DisplayString
+      sysContact:
+        type: DisplayString
+      mtxrNeighborIdentity:
+        type: DisplayString
+      mtxrNeighborPlatform:
+        type: DisplayString
+      mtxrNeighborVersion:
+        type: DisplayString
+      mtxrNeighborMacAddress:
+        type: DisplayString
+      mtxrNeighborIpAddress:
+        type: DisplayString
+      mtxrNeighborSoftwareID:
+        type: DisplayString
+      mtxrLicVersion:
+        type: DisplayString
+      mtxrLicSoftwareId:
+        type: DisplayString
+      mtxrFirmwareVersion:
+        type: DisplayString
+      mtxrSerialNumber:
+        type: DisplayString

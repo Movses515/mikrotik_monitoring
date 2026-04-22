@@ -1614,7 +1614,7 @@
       },
       "id": 9001,
       "panels": [],
-      "title": "WAN Traffic",
+      "title": "Interface Traffic",
       "type": "row"
     },
     {
@@ -1711,7 +1711,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(ifHCInOctets{ifName='sfp28-12',instance='$instance'}[5m])*8",
+          "expr": "irate(ifHCInOctets{ifName=~'.*sfp28-12.*',instance='$instance'}[5m])*8",
           "legendFormat": "In",
           "range": true,
           "refId": "A"
@@ -1722,7 +1722,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(ifHCOutOctets{ifName='sfp28-12',instance='$instance'}[5m])*8",
+          "expr": "irate(ifHCOutOctets{ifName=~'.*sfp28-12.*',instance='$instance'}[5m])*8",
           "legendFormat": "Out",
           "range": true,
           "refId": "B"
@@ -1825,7 +1825,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(ifHCInOctets{ifName='V4001-BGP1',instance='$instance'}[5m])*8",
+          "expr": "irate(ifHCInOctets{ifName=~'.*V4001-BGP1.*',instance='$instance'}[5m])*8",
           "legendFormat": "In",
           "range": true,
           "refId": "A"
@@ -1836,7 +1836,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(ifHCOutOctets{ifName='V4001-BGP1',instance='$instance'}[5m])*8",
+          "expr": "irate(ifHCOutOctets{ifName=~'.*V4001-BGP1.*',instance='$instance'}[5m])*8",
           "legendFormat": "Out",
           "range": true,
           "refId": "B"

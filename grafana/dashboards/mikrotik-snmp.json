@@ -3816,23 +3816,28 @@
       },
       {
         "allValue": ".*",
-        "current": {},
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": {
           "type": "prometheus",
           "uid": "Prometheus"
         },
-        "definition": "query_result(label_join(count by (ifName, ifAlias) (ifHCInOctets{instance=\"$instance\"}), \"combined\", \"|\", \"ifAlias\", \"ifName\"))",
+        "definition": "label_values(ifHCInOctets{instance=\"$instance\"}, ifName)",
         "hide": 0,
         "includeAll": true,
         "multi": true,
         "name": "Interface",
         "options": [],
         "query": {
-          "query": "query_result(label_join(count by (ifName, ifAlias) (ifHCInOctets{instance=\"$instance\"}), \"combined\", \"|\", \"ifAlias\", \"ifName\"))",
+          "qryType": 1,
+          "query": "label_values(ifHCInOctets{instance=\"$instance\"}, ifName)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
-        "regex": "/combined=\"(?<__text>[^\"|]*)\\|(?<__value>[^\"]+)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 5,
         "tagValuesQuery": "",

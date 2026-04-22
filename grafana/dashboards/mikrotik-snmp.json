@@ -1284,7 +1284,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "irate(ifHCInOctets{ifAlias=~'$Interface',instance='$instance'}[5m])*8",
+          "expr": "irate(ifHCInOctets{ifName=~'$Interface',instance='$instance'}[5m])*8",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -1300,7 +1300,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "irate(ifHCOutOctets{ifAlias=~'$Interface',instance='$instance'}[5m])*8",
+          "expr": "irate(ifHCOutOctets{ifName=~'$Interface',instance='$instance'}[5m])*8",
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
@@ -1888,282 +1888,6 @@
       "type": "table"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Prometheus"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "type": "color-text"
-            },
-            "filterable": false,
-            "inspect": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "super-light-yellow",
-                "value": null
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Neighbor index"
-            },
-            "properties": [
-              {
-                "id": "custom.align",
-                "value": "center"
-              },
-              {
-                "id": "custom.width",
-                "value": 134
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "IP"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 111
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "MAC"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 142
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Platform"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 127
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Software ID"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 136
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 24,
-        "x": 0,
-        "y": 28
-      },
-      "id": 1652,
-      "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
-        "frameIndex": 0,
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "Neighbor index"
-          }
-        ]
-      },
-      "pluginVersion": "10.2.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "mtxrNeighborInterfaceID{instance='$instance'}",
-          "format": "table",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "mtxrNeighborIdentity{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "mtxrNeighborIpAddress{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "mtxrNeighborMacAddress{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "mtxrNeighborPlatform{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "mtxrNeighborSoftwareID{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "F"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "mtxrNeighborVersion{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "G"
-        }
-      ],
-      "title": "Neighbors",
-      "transformations": [
-        {
-          "id": "seriesToColumns",
-          "options": {
-            "byField": "mtxrNeighborIndex"
-          }
-        },
-        {
-          "id": "merge",
-          "options": {}
-        },
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "Time": true,
-              "Value #A": true,
-              "Value #B": true,
-              "Value #C": true,
-              "Value #D": true,
-              "Value #E": true,
-              "Value #F": true,
-              "Value #G": true,
-              "__name__": true,
-              "instance": true,
-              "job": true,
-              "mtxrNeighborIndex": false
-            },
-            "indexByName": {},
-            "renameByName": {
-              "Time": "",
-              "Value #A": "",
-              "Value #B": "",
-              "Value #C": "",
-              "Value #D": "",
-              "Value #E": "",
-              "Value #F": "",
-              "job": "",
-              "mtxrNeighborIdentity": "identity",
-              "mtxrNeighborIndex": "Neighbor index",
-              "mtxrNeighborIpAddress": "IP",
-              "mtxrNeighborMacAddress": "MAC",
-              "mtxrNeighborPlatform": "Platform",
-              "mtxrNeighborSoftwareID": "Software ID",
-              "mtxrNeighborVersion": "Firmware version"
-            }
-          }
-        }
-      ],
-      "type": "table"
-    },
-    {
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
@@ -2497,7 +2221,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "irate(ifHCInOctets{ifAlias=~'$Interface',instance='$instance'}[5m])*8",
+          "expr": "irate(ifHCInOctets{ifName=~'$Interface',instance='$instance'}[5m])*8",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -2513,7 +2237,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "irate(ifHCOutOctets{ifAlias=~'$Interface',instance='$instance'}[5m])*8",
+          "expr": "irate(ifHCOutOctets{ifName=~'$Interface',instance='$instance'}[5m])*8",
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
@@ -2793,7 +2517,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxMulticast{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxMulticast{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "In Multicast",
@@ -2807,7 +2531,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxMulticast{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxMulticast{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "Out Multicast",
@@ -2821,7 +2545,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxBroadcast{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxBroadcast{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "In Broadcast",
@@ -2835,7 +2559,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxBroadcast{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxBroadcast{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "Out Broadcast",
@@ -2848,7 +2572,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(ifHCInUcastPkts{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(ifHCInUcastPkts{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "In Unicast",
@@ -2860,7 +2584,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(ifHCOutUcastPkts{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(ifHCOutUcastPkts{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "Out Unicast",
@@ -2872,7 +2596,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(ifInDiscards{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(ifInDiscards{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "In Discard",
@@ -2884,7 +2608,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(ifOutDiscards{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(ifOutDiscards{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "Out Discard",
@@ -2897,7 +2621,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxCodeError{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxCodeError{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "In Errors",
@@ -2911,7 +2635,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxCodeError{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxCodeError{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "Out Errors",
@@ -2925,7 +2649,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxUnknownOp{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxUnknownOp{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "In Unknown Protos",
@@ -2939,7 +2663,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxLengthError{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxLengthError{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "legendFormat": "Out queue length",
@@ -3007,7 +2731,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxControl{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxControl{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3020,7 +2744,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxDeferred{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxDeferred{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3033,7 +2757,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxCollision{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxCollision{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3048,7 +2772,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxDrop{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxDrop{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3063,7 +2787,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxExcessiveCollision{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxExcessiveCollision{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3078,7 +2802,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxExcessiveDeferred{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxExcessiveDeferred{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3093,7 +2817,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxFCSError{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxFCSError{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3108,7 +2832,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxFragment{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxFragment{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3123,7 +2847,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxJabber{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxJabber{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3138,7 +2862,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxLateCollision{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxLateCollision{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3153,7 +2877,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxMultipleCollision{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxMultipleCollision{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3168,7 +2892,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxPause{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxPause{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3183,7 +2907,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxPauseHonored{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxPauseHonored{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3198,7 +2922,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxSingleCollision{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxSingleCollision{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3213,7 +2937,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxTooLong{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxTooLong{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3228,7 +2952,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxTooShort{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxTooShort{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3243,7 +2967,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxTotalCollision{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxTotalCollision{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3258,7 +2982,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsTxUnderrun{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsTxUnderrun{ifName=~'$Interface',instance='$instance'}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -3356,7 +3080,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxAlignError{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxAlignError{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3369,7 +3093,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxCarrierError{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxCarrierError{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3382,7 +3106,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxControl{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxControl{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3395,7 +3119,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxDrop{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxDrop{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3408,7 +3132,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxFCSError{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxFCSError{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3421,7 +3145,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxFragment{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxFragment{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3434,7 +3158,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxJabber{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxJabber{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3447,7 +3171,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxLengthError{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxLengthError{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3460,7 +3184,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxOverflow{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxOverflow{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3473,7 +3197,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxPause{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxPause{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3486,7 +3210,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxTooLong{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxTooLong{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3499,7 +3223,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxTooShort{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxTooShort{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -3512,7 +3236,7 @@
                 "uid": "Prometheus"
               },
               "exemplar": true,
-              "expr": "irate(mtxrInterfaceStatsRxUnknownOp{ifAlias=~'$Interface',instance='$instance'}[5m])",
+              "expr": "irate(mtxrInterfaceStatsRxUnknownOp{ifName=~'$Interface',instance='$instance'}[5m])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -4755,18 +4479,18 @@
           "type": "prometheus",
           "uid": "Prometheus"
         },
-        "definition": "label_values(ifHCInOctets{instance='$instance'}, ifAlias)",
+        "definition": "query_result(label_replace(label_replace(count by (ifName, ifAlias) (ifHCInOctets{instance=\"$instance\"}), \"display\", \"$$1\", \"ifName\", \"(.*)\"), \"display\", \"$$1\", \"ifAlias\", \"(.+)\"))",
         "hide": 0,
         "includeAll": true,
         "multi": false,
         "name": "Interface",
         "options": [],
         "query": {
-          "query": "label_values(ifHCInOctets{instance='$instance'}, ifAlias)",
+          "query": "query_result(label_replace(label_replace(count by (ifName, ifAlias) (ifHCInOctets{instance=\"$instance\"}), \"display\", \"$$1\", \"ifName\", \"(.*)\"), \"display\", \"$$1\", \"ifAlias\", \"(.+)\"))",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
-        "regex": "/^.+$/",
+        "regex": "/display=\"(?<__text>[^\"]+)\".*ifName=\"(?<__value>[^\"]+)\"/",
         "skipUrlSync": false,
         "sort": 5,
         "tagValuesQuery": "",

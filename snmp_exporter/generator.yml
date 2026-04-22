@@ -21,7 +21,6 @@ modules:
       - mtxrHealth
       - mtxrSystem
       - mtxrLicense
-      - mtxrNeighbor
       - mtxrInterfaceStats
       - mtxrPOE
 
@@ -62,18 +61,6 @@ modules:
       sysLocation:
         type: DisplayString
       sysContact:
-        type: DisplayString
-      mtxrNeighborIdentity:
-        type: DisplayString
-      mtxrNeighborPlatform:
-        type: DisplayString
-      mtxrNeighborVersion:
-        type: DisplayString
-      mtxrNeighborMacAddress:
-        type: DisplayString
-      mtxrNeighborIpAddress:
-        type: DisplayString
-      mtxrNeighborSoftwareID:
         type: DisplayString
       mtxrLicVersion:
         type: DisplayString

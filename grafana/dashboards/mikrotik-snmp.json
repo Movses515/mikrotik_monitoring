@@ -1818,6 +1818,14 @@
       "title": "Interfaces",
       "transformations": [
         {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "pattern": "^(?!display_name).*"
+            }
+          }
+        },
+        {
           "id": "seriesToColumns",
           "options": {
             "byField": "ifName"

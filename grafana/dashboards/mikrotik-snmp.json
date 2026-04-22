@@ -1290,7 +1290,7 @@
           "instant": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "In - {{ifName}}",
+          "legendFormat": "In - {{ifName}} {{ifAlias}}",
           "refId": "C"
         },
         {
@@ -1304,7 +1304,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "Out - {{ifName}}",
+          "legendFormat": "Out - {{ifName}} {{ifAlias}}",
           "range": true,
           "refId": "A"
         }
@@ -4479,18 +4479,18 @@
           "type": "prometheus",
           "uid": "Prometheus"
         },
-        "definition": "query_result(label_replace(label_replace(count by (ifName, ifAlias) (ifHCInOctets{instance=\"$instance\"}), \"display\", \"$$1\", \"ifName\", \"(.*)\"), \"display\", \"$$1\", \"ifAlias\", \"(.+)\"))",
+        "definition": "label_values(ifHCInOctets{instance='$instance'}, ifName)",
         "hide": 0,
         "includeAll": true,
         "multi": false,
         "name": "Interface",
         "options": [],
         "query": {
-          "query": "query_result(label_replace(label_replace(count by (ifName, ifAlias) (ifHCInOctets{instance=\"$instance\"}), \"display\", \"$$1\", \"ifName\", \"(.*)\"), \"display\", \"$$1\", \"ifAlias\", \"(.+)\"))",
+          "query": "label_values(ifHCInOctets{instance='$instance'}, ifName)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
-        "regex": "/display=\"(?<__text>[^\"]+)\".*ifName=\"(?<__value>[^\"]+)\"/",
+        "regex": "/^.+$/",
         "skipUrlSync": false,
         "sort": 5,
         "tagValuesQuery": "",

@@ -523,7 +523,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "CPU Temp °C"
+              "options": "CPU Temp \u00b0C"
             },
             "properties": [
               {
@@ -683,7 +683,10 @@
           "fields": "",
           "values": false
         },
-        "text": {},
+        "text": {
+          "titleSize": 14,
+          "valueSize": 20
+        },
         "textMode": "auto",
         "wideLayout": true
       },
@@ -750,7 +753,10 @@
           "fields": "",
           "values": false
         },
-        "text": {},
+        "text": {
+          "titleSize": 14,
+          "valueSize": 20
+        },
         "textMode": "name",
         "wideLayout": true
       },
@@ -819,7 +825,10 @@
           "fields": "/^Time$/",
           "values": false
         },
-        "text": {},
+        "text": {
+          "titleSize": 14,
+          "valueSize": 20
+        },
         "textMode": "auto",
         "wideLayout": true
       },
@@ -884,7 +893,10 @@
           "fields": "",
           "values": false
         },
-        "text": {},
+        "text": {
+          "titleSize": 14,
+          "valueSize": 20
+        },
         "textMode": "name",
         "wideLayout": true
       },
@@ -950,7 +962,10 @@
           "fields": "",
           "values": false
         },
-        "text": {},
+        "text": {
+          "titleSize": 14,
+          "valueSize": 20
+        },
         "textMode": "name",
         "wideLayout": true
       },
@@ -1059,7 +1074,10 @@
           "fields": "",
           "values": false
         },
-        "text": {},
+        "text": {
+          "titleSize": 14,
+          "valueSize": 20
+        },
         "textMode": "auto",
         "wideLayout": true
       },
@@ -1155,7 +1173,10 @@
           "fields": "",
           "values": false
         },
-        "text": {},
+        "text": {
+          "titleSize": 14,
+          "valueSize": 20
+        },
         "textMode": "value",
         "wideLayout": true
       },
@@ -1226,7 +1247,10 @@
           "fields": "",
           "values": false
         },
-        "text": {},
+        "text": {
+          "titleSize": 14,
+          "valueSize": 20
+        },
         "textMode": "auto",
         "wideLayout": true
       },
@@ -1296,7 +1320,10 @@
           "fields": "",
           "values": false
         },
-        "text": {},
+        "text": {
+          "titleSize": 14,
+          "valueSize": 20
+        },
         "textMode": "auto",
         "wideLayout": true
       },
@@ -1363,7 +1390,10 @@
           "fields": "",
           "values": false
         },
-        "text": {},
+        "text": {
+          "titleSize": 14,
+          "valueSize": 20
+        },
         "textMode": "auto",
         "wideLayout": true
       },
@@ -3844,7 +3874,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "CPU Temp °C"
+                  "options": "CPU Temp \u00b0C"
                 },
                 "properties": [
                   {
@@ -4972,18 +5002,18 @@
           "type": "prometheus",
           "uid": "Prometheus"
         },
-        "definition": "query_result(sort(mtxrInterfaceStatsIndex{ifName=~'^(ether).+',instance='$instance'}) or sort(mtxrInterfaceStatsIndex{ifName=~'^(sfp|wlan).+',instance='$instance'}) or sort(mtxrInterfaceStatsIndex{ifName=~'^bridge.+',instance='$instance'}) or  sort(mtxrInterfaceStatsIndex{ifName!~'^(ether|bridge).+',instance='$instance'}) )",
+        "definition": "label_values(ifName{instance='$instance'}, ifName)",
         "hide": 0,
         "includeAll": true,
         "multi": false,
         "name": "Interface",
         "options": [],
         "query": {
-          "query": "query_result(sort(mtxrInterfaceStatsIndex{ifName=~'^(ether).+',instance='$instance'}) or sort(mtxrInterfaceStatsIndex{ifName=~'^(sfp|wlan).+',instance='$instance'}) or sort(mtxrInterfaceStatsIndex{ifName=~'^bridge.+',instance='$instance'}) or  sort(mtxrInterfaceStatsIndex{ifName!~'^(ether|bridge).+',instance='$instance'}) )",
+          "query": "label_values(ifName{instance='$instance'}, ifName)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
-        "regex": "/ifName=\"(.*)\",instance/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",

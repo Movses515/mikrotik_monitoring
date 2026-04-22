@@ -61,14 +61,13 @@ services:
     networks:
       - intermax-apps-network
 
-  mktxp:
-    image: ghcr.io/akpw/mktxp:latest
-    container_name: mktxp
+  snmp-exporter:
+    image: prom/snmp-exporter:latest
+    container_name: snmp-exporter
     ports:
-      - "49090:49090"
+      - "9116:9116"
     volumes:
-      - ./mktxp/mktxp.conf:/etc/mktxp/mktxp.conf
-    command: ["mktxp", "--cfg-dir", "/etc/mktxp", "export"]
+      - ./snmp_exporter/snmp.yml:/etc/snmp_exporter/snmp.yml
     restart: unless-stopped
     networks:
       - intermax-apps-network

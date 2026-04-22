@@ -2,81 +2,71 @@ groups:
   - name: mikrotik_device_alerts
     rules:
       - alert: MikroTikDeviceDown
-        expr: up{job="mikrotik_mktxp"} == 0
+        expr: up{job="mikrotik_snmp"} == 0
         for: 2m
         labels:
           severity: critical
         annotations:
-          description: "MikroTik exporter is unreachable for more than 2 minutes. One or more routers may be offline."
+          description: "MikroTik device {{ $labels.instance }} is unreachable via SNMP for more than 2 minutes."
 
       - alert: MikroTikRouterUnreachable
-        expr: absent_over_time(mktxp_system_uptime{routerboard_name=~".+"}[3m])
+        expr: absent_over_time(sysUpTime{job="mikrotik_snmp", instance=~".+"}[3m])
         for: 1m
         labels:
           severity: critical
         annotations:
-          description: "Router {{ $labels.routerboard_name }} has not reported metrics for 3+ minutes."
+          description: "Router {{ $labels.instance }} has not reported metrics for 3+ minutes."
 
   - name: mikrotik_interface_alerts
     rules:
       - alert: InterfaceDown
-        expr: mktxp_interface_running{name!~".*loopback.*"} == 0 and mktxp_interface_disabled == 0 and max_over_time(mktxp_interface_running{name!~".*loopback.*"}[10m]) == 1
+        expr: ifOperStatus{job="mikrotik_snmp", ifDescr!~".*loopback.*"} != 1 and ifAdminStatus == 1 and max_over_time(ifOperStatus{ifDescr!~".*loopback.*"}[10m]) == 1
         for: 1m
         labels:
           severity: warning
         annotations:
-          description: "Interface {{ $labels.name }} on {{ $labels.routerboard_name }} is DOWN."
+          description: "Interface {{ $labels.ifDescr }} on {{ $labels.instance }} is DOWN."
 
       - alert: InterfaceHighErrorRate
-        expr: rate(mktxp_interface_rx_error_total[5m]) + rate(mktxp_interface_tx_error_total[5m]) > 10
+        expr: rate(ifInErrors{job="mikrotik_snmp"}[5m]) + rate(ifOutErrors[5m]) > 10
         for: 5m
         labels:
           severity: warning
         annotations:
-          description: "Interface {{ $labels.name }} on {{ $labels.routerboard_name }} has high error rate ({{ $value | printf \"%.1f\" }} errors/sec)."
+          description: "Interface {{ $labels.ifDescr }} on {{ $labels.instance }} has high error rate ({{ $value | printf \"%.1f\" }} errors/sec)."
 
   - name: mikrotik_traffic_alerts
     rules:
       - alert: NoTrafficOnInterface
-        expr: rate(mktxp_interface_rx_byte_total{name=~"ether1.*|sfp.*|bonding.*"}[5m]) == 0 and mktxp_interface_running == 1
+        expr: rate(ifHCInOctets{job="mikrotik_snmp", ifDescr=~"ether1.*|sfp.*|bonding.*"}[5m]) == 0 and ifOperStatus == 1
         for: 5m
         labels:
           severity: warning
         annotations:
-          description: "Interface {{ $labels.name }} on {{ $labels.routerboard_name }} is UP but has zero incoming traffic for 5+ minutes."
+          description: "Interface {{ $labels.ifDescr }} on {{ $labels.instance }} is UP but has zero incoming traffic for 5+ minutes."
 
   - name: mikrotik_system_alerts
     rules:
       - alert: HighCPULoad
-        expr: mktxp_system_cpu_load > 90
+        expr: mtxrHlCpuLoad{job="mikrotik_snmp"} > 90
         for: 5m
         labels:
           severity: warning
         annotations:
-          description: "CPU load on {{ $labels.routerboard_name }} is {{ $value }}% for 5+ minutes."
+          description: "CPU load on {{ $labels.instance }} is {{ $value }}% for 5+ minutes."
 
       - alert: HighMemoryUsage
-        expr: (1 - mktxp_system_free_memory / mktxp_system_total_memory) * 100 > 90
+        expr: (1 - hrStorageFree{hrStorageDescr="main memory"} / hrStorageSize{hrStorageDescr="main memory"}) * 100 > 90
         for: 5m
         labels:
           severity: warning
         annotations:
-          description: "Memory usage on {{ $labels.routerboard_name }} is {{ $value | printf \"%.1f\" }}%."
+          description: "Memory usage on {{ $labels.instance }} is {{ $value | printf \"%.1f\" }}%."
 
       - alert: HighTemperature
-        expr: mktxp_system_cpu_temperature > 85
+        expr: mtxrHlTemperature{job="mikrotik_snmp"} > 85
         for: 2m
         labels:
           severity: critical
         annotations:
-          description: "CPU temperature on {{ $labels.routerboard_name }} is {{ $value }}°C."
-
-  - name: mikrotik_dhcp_alerts
-    rules:
-      - alert: IPPoolAlmostFull
-        expr: mktxp_ip_pool_used > 240
-        for: 5m
-        labels:
-          severity: warning
-        annotations:
-          description: "IP Pool {{ $labels.pool }} on {{ $labels.routerboard_name }} has {{ $value }}/254 addresses used."
+          description: "CPU temperature on {{ $labels.instance }} is {{ $value }}°C."

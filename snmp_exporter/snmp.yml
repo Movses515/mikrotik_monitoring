@@ -1,0 +1,100 @@
+auths:
+  intermax:
+    community: intermax_monitoring
+    version: 2
+
+modules:
+  mikrotik:
+    walk:
+      # System info
+      - 1.3.6.1.2.1.1              # system (sysDescr, sysUpTime, sysName, sysLocation)
+
+      # Interfaces
+      - 1.3.6.1.2.1.2.2.1          # ifTable (ifDescr, ifType, ifSpeed, ifOperStatus, ifPhysAddress, ifMtu, etc.)
+      - 1.3.6.1.2.1.31.1.1         # ifXTable (ifHCInOctets, ifHCOutOctets, ifHCInUcastPkts, ifHCOutUcastPkts, ifHighSpeed, ifAlias)
+
+      # IP address table
+      - 1.3.6.1.2.1.4.20           # ipAddrTable
+
+      # HOST-RESOURCES-MIB
+      - 1.3.6.1.2.1.25.1           # hrSystem (hrSystemUptime, hrSystemDate)
+      - 1.3.6.1.2.1.25.2.3         # hrStorageTable (memory and disk usage)
+      - 1.3.6.1.2.1.25.3.2         # hrDeviceTable (hrDeviceStatus, hrDeviceErrors)
+      - 1.3.6.1.2.1.25.3.3         # hrProcessorTable (hrProcessorLoad)
+
+      # MIKROTIK-MIB - system health
+      - 1.3.6.1.4.1.14988.1.1.3    # mtxrHealth (voltage, temperature, CPU temp, current, power, fan speed, processor frequency)
+
+      # MIKROTIK-MIB - system / firmware
+      - 1.3.6.1.4.1.14988.1.1.7    # mtxrSystem (firmware version, serial number, CPU load)
+
+      # MIKROTIK-MIB - license
+      - 1.3.6.1.4.1.14988.1.1.4    # mtxrLicense (license version, software ID)
+
+      # MIKROTIK-MIB - neighbor discovery
+      - 1.3.6.1.4.1.14988.1.1.11   # mtxrNeighbor (identity, IP, MAC, platform, version)
+
+      # MIKROTIK-MIB - interface stats
+      - 1.3.6.1.4.1.14988.1.1.14   # mtxrInterfaceStats (detailed per-interface RX/TX counters, errors, collisions)
+
+      # MIKROTIK-MIB - POE
+      - 1.3.6.1.4.1.14988.1.1.15   # mtxrPOE (status, power, voltage, current)
+
+    lookups:
+      - source_indexes: [ifIndex]
+        lookup: ifDescr
+        drop_source_indexes: false
+      - source_indexes: [ifIndex]
+        lookup: ifAlias
+        drop_source_indexes: false
+      - source_indexes: [ifIndex]
+        lookup: ifName
+        drop_source_indexes: false
+      - source_indexes: [hrStorageIndex]
+        lookup: hrStorageDescr
+        drop_source_indexes: false
+      - source_indexes: [hrDeviceIndex]
+        lookup: hrDeviceDescr
+        drop_source_indexes: false
+
+    overrides:
+      ifAlias:
+        type: DisplayString
+      ifDescr:
+        type: DisplayString
+      ifName:
+        type: DisplayString
+      ifPhysAddress:
+        type: DisplayString
+      hrStorageDescr:
+        type: DisplayString
+      hrDeviceDescr:
+        type: DisplayString
+      sysDescr:
+        type: DisplayString
+      sysName:
+        type: DisplayString
+      sysLocation:
+        type: DisplayString
+      sysContact:
+        type: DisplayString
+      mtxrNeighborIdentity:
+        type: DisplayString
+      mtxrNeighborPlatform:
+        type: DisplayString
+      mtxrNeighborVersion:
+        type: DisplayString
+      mtxrNeighborMacAddress:
+        type: DisplayString
+      mtxrNeighborIpAddress:
+        type: DisplayString
+      mtxrNeighborSoftwareID:
+        type: DisplayString
+      mtxrLicVersion:
+        type: DisplayString
+      mtxrLicSoftwareId:
+        type: DisplayString
+      mtxrFirmwareVersion:
+        type: DisplayString
+      mtxrSerialNumber:
+        type: DisplayString

@@ -15,8 +15,24 @@ scrape_configs:
     static_configs:
       - targets: ['10.72.100.22:9090']
 
-  - job_name: 'mikrotik_mktxp'
+  - job_name: 'mikrotik_snmp'
     scrape_interval: 1m
-    scrape_timeout: 50s
+    scrape_timeout: 30s
     static_configs:
-      - targets: ['10.72.100.22:49090']
+      - targets:
+          - 10.72.200.1
+          - 10.72.200.2
+          - 10.72.200.10
+          - 10.72.200.11
+          - 10.72.200.22
+    metrics_path: /snmp
+    params:
+      auth: [intermax]
+      module: [mikrotik]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: snmp-exporter:9116

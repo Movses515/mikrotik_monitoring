@@ -78,6 +78,12 @@ scrape_configs:
         regex: '(.*)\x{fffd}(.*)'
         target_label: ifName
         replacement: '${1}?${2}'
+      # If ifName has corrupted chars (?) and a comment exists, use the comment as ifName
+      - source_labels: [ifName, ifAlias]
+        separator: ';'
+        regex: '.*\?.*;(.+)'
+        target_label: ifName
+        replacement: '${1}'
       # Replace U+FFFD in ifDescr (10x)
       - source_labels: [ifDescr]
         regex: '(.*)\x{fffd}(.*)'

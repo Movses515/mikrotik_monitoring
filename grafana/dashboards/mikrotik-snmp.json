@@ -1419,6 +1419,22 @@
           {
             "matcher": {
               "id": "byName",
+              "options": "Comment"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "left"
+              },
+              {
+                "id": "custom.width",
+                "value": 220
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
               "options": "Traffic In"
             },
             "properties": [
@@ -1535,7 +1551,6 @@
               "__name__ 1": true,
               "__name__ 2": true,
               "__name__ 3": true,
-              "ifAlias": true,
               "ifAlias 1": true,
               "ifAlias 2": true,
               "ifAlias 3": true,
@@ -1570,12 +1585,14 @@
             },
             "indexByName": {
               "ifName": 0,
-              "Value #A": 1,
-              "Value #B": 2,
-              "Value #C": 3
+              "ifAlias": 1,
+              "Value #A": 2,
+              "Value #B": 3,
+              "Value #C": 4
             },
             "renameByName": {
               "ifName": "Name",
+              "ifAlias": "Comment",
               "Value #A": "Status",
               "Value #B": "Traffic In",
               "Value #C": "Traffic Out"

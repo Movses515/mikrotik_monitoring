@@ -1174,149 +1174,6 @@
         "type": "prometheus",
         "uid": "Prometheus"
       },
-      "description": "Showing values > 0",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "orange",
-            "mode": "continuous-YlBl",
-            "seriesBy": "max"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "smooth",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "noValue": "no data from source",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "bps"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "In - wlan1"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#ff2e63",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 9
-      },
-      "id": 1239,
-      "options": {
-        "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max"
-          ],
-          "displayMode": "list",
-          "placement": "right",
-          "showLegend": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "8.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": true,
-          "expr": "irate(ifHCInOctets{ifName=~'$Interface',instance='$instance'}[5m])*8",
-          "format": "time_series",
-          "hide": false,
-          "instant": false,
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "In - {{ifName}}",
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": true,
-          "expr": "irate(ifHCOutOctets{ifName=~'$Interface',instance='$instance'}[5m])*8",
-          "hide": false,
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "Out - {{ifName}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Network Traffic Basic",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Prometheus"
-      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1470,7 +1327,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 30
       },
       "id": 1275,
       "options": {
@@ -1610,7 +1467,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 28
+        "y": 16
       },
       "id": 9001,
       "panels": [],
@@ -1684,7 +1541,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 29
+        "y": 17
       },
       "id": 9002,
       "options": {
@@ -1798,7 +1655,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 29
+        "y": 17
       },
       "id": 9003,
       "options": {
@@ -1844,32 +1701,6 @@
       ],
       "title": "V4001-BGP1",
       "type": "timeseries"
-    },
-    {
-      "collapsed": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "5BOgatKnk"
-      },
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 36
-      },
-      "id": 1285,
-      "panels": [],
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "5BOgatKnk"
-          },
-          "refId": "A"
-        }
-      ],
-      "title": "Interfaces Traffic",
-      "type": "row"
     },
     {
       "datasource": {
@@ -2147,7 +1978,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 35
+        "y": 23
       },
       "id": 1286,
       "maxPerRow": 2,

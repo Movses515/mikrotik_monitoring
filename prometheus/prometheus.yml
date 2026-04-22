@@ -119,12 +119,3 @@ scrape_configs:
         regex: '(.*)\x{fffd}(.*)'
         target_label: ifDescr
         replacement: '${1}?${2}'
-      # display_name: use comment (ifAlias) when set, otherwise interface name (ifName)
-      - source_labels: [ifName]
-        target_label: display_name
-        regex: '(.+)'
-        replacement: '${1}'
-      - source_labels: [ifAlias]
-        target_label: display_name
-        regex: '(.+)'
-        replacement: '${1}'

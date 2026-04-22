@@ -1317,14 +1317,14 @@
         "type": "prometheus",
         "uid": "Prometheus"
       },
-      "description": "Status link/states: The current operational state of the interface",
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
           "custom": {
-            "align": "auto",
+            "align": "center",
             "cellOptions": {
               "type": "color-text"
             },
@@ -1340,72 +1340,46 @@
                 "value": null
               }
             ]
-          },
-          "unit": "short"
+          }
         },
         "overrides": [
           {
             "matcher": {
-              "id": "byType",
-              "options": "string"
+              "id": "byName",
+              "options": "Name"
             },
             "properties": [
               {
                 "id": "custom.align",
-                "value": "center"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byType",
-              "options": "number"
-            },
-            "properties": [
+                "value": "left"
+              },
               {
-                "id": "custom.align",
-                "value": "center"
+                "id": "custom.width",
+                "value": 220
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "Status link/states"
+              "options": "Status"
             },
             "properties": [
-              {
-                "id": "thresholds",
-                "value": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "#299c46",
-                      "value": 1
-                    },
-                    {
-                      "color": "transparent",
-                      "value": 2
-                    }
-                  ]
-                }
-              },
               {
                 "id": "mappings",
                 "value": [
                   {
                     "options": {
                       "1": {
+                        "color": "green",
                         "text": "UP"
                       },
                       "2": {
+                        "color": "red",
                         "text": "DOWN"
                       },
                       "3": {
+                        "color": "yellow",
                         "text": "Testing"
                       }
                     },
@@ -1414,22 +1388,22 @@
                 ]
               },
               {
-                "id": "custom.width",
-                "value": 130
-              },
-              {
                 "id": "custom.cellOptions",
                 "value": {
                   "mode": "gradient",
                   "type": "color-background"
                 }
+              },
+              {
+                "id": "custom.width",
+                "value": 100
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "Rate"
+              "options": "Traffic In"
             },
             "properties": [
               {
@@ -1437,211 +1411,24 @@
                 "value": "bps"
               },
               {
-                "id": "thresholds",
-                "value": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "rgb(77, 79, 79)",
-                      "value": null
-                    },
-                    {
-                      "color": "#EAB839",
-                      "value": 50000000
-                    },
-                    {
-                      "color": "#6ED0E0",
-                      "value": 100000000
-                    },
-                    {
-                      "color": "#299c46",
-                      "value": 1000000000
-                    },
-                    {
-                      "color": "semi-dark-purple",
-                      "value": 1000000010
-                    }
-                  ]
-                }
-              },
-              {
                 "id": "custom.width",
-                "value": 119
+                "value": 140
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "TX Sum"
+              "options": "Traffic Out"
             },
             "properties": [
               {
                 "id": "unit",
-                "value": "bits"
+                "value": "bps"
               },
-              {
-                "id": "thresholds",
-                "value": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "rgb(77, 79, 79)",
-                      "value": null
-                    },
-                    {
-                      "color": "super-light-yellow",
-                      "value": 1
-                    }
-                  ]
-                }
-              },
-              {
-                "id": "custom.width",
-                "value": 118
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "RX Sum"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "bits"
-              },
-              {
-                "id": "thresholds",
-                "value": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "rgb(77, 79, 79)",
-                      "value": null
-                    },
-                    {
-                      "color": "super-light-yellow",
-                      "value": 1
-                    }
-                  ]
-                }
-              },
-              {
-                "id": "custom.width",
-                "value": 118
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "MAC"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 152
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Link down count"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 118
-              },
-              {
-                "id": "thresholds",
-                "value": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "rgb(77, 79, 79)",
-                      "value": null
-                    },
-                    {
-                      "color": "super-light-yellow",
-                      "value": 1
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Int. index"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 88
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "MTU"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 118
-              },
-              {
-                "id": "unit",
-                "value": "none"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Type of interface"
-            },
-            "properties": [
               {
                 "id": "custom.width",
                 "value": 140
-              },
-              {
-                "id": "mappings",
-                "value": [
-                  {
-                    "options": {
-                      "ethernetCsmacd": {
-                        "text": "Physical"
-                      },
-                      "ieee80211": {
-                        "text": "Wireless"
-                      }
-                    },
-                    "type": "value"
-                  }
-                ]
-              },
-              {
-                "id": "custom.filterable",
-                "value": true
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Name"
-            },
-            "properties": [
-              {
-                "id": "custom.width"
               }
             ]
           }
@@ -1669,7 +1456,7 @@
         "sortBy": [
           {
             "desc": false,
-            "displayName": "ifIndex 1"
+            "displayName": "Name"
           }
         ]
       },
@@ -1680,11 +1467,10 @@
             "type": "prometheus",
             "uid": "Prometheus"
           },
-          "exemplar": true,
-          "expr": "ifPhysAddress{instance='$instance'}",
+          "editorMode": "code",
+          "expr": "ifOperStatus{instance='$instance'}",
           "format": "table",
           "instant": true,
-          "interval": "",
           "legendFormat": "",
           "refId": "A"
         },
@@ -1693,12 +1479,10 @@
             "type": "prometheus",
             "uid": "Prometheus"
           },
-          "exemplar": true,
-          "expr": "ifOperStatus{instance='$instance'}",
+          "editorMode": "code",
+          "expr": "irate(ifHCInOctets{instance='$instance'}[5m])*8",
           "format": "table",
-          "hide": false,
           "instant": true,
-          "interval": "",
           "legendFormat": "",
           "refId": "B"
         },
@@ -1707,112 +1491,12 @@
             "type": "prometheus",
             "uid": "Prometheus"
           },
-          "exemplar": true,
-          "expr": "mtxrInterfaceStatsRxBytes{instance='$instance'}",
+          "editorMode": "code",
+          "expr": "irate(ifHCOutOctets{instance='$instance'}[5m])*8",
           "format": "table",
-          "hide": false,
           "instant": true,
-          "interval": "",
           "legendFormat": "",
           "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "mtxrInterfaceStatsTxBytes{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "ifSpeed{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "mtxrInterfaceStatsLinkDowns{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "F"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "ifMtu{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "G"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "ifType_info{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "H"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "mtxrPOEInterfaceIndex{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "I"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Prometheus"
-          },
-          "exemplar": true,
-          "expr": "ifAlias{instance='$instance'}",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "J"
         }
       ],
       "title": "Interfaces",
@@ -1824,63 +1508,61 @@
           }
         },
         {
-          "id": "merge",
-          "options": {}
-        },
-        {
           "id": "organize",
           "options": {
             "excludeByName": {
               "Time": true,
-              "Value #A": true,
-              "Value #H": true,
-              "Value #J": true,
+              "Time 1": true,
+              "Time 2": true,
+              "Time 3": true,
               "__name__": true,
-              "ifIndex": false,
+              "__name__ 1": true,
+              "__name__ 2": true,
+              "__name__ 3": true,
+              "ifAlias": true,
+              "ifAlias 1": true,
+              "ifAlias 2": true,
+              "ifAlias 3": true,
+              "ifDescr": true,
+              "ifDescr 1": true,
+              "ifDescr 2": true,
+              "ifDescr 3": true,
+              "ifIndex": true,
+              "ifIndex 1": true,
+              "ifIndex 2": true,
+              "ifIndex 3": true,
+              "ifPhysAddress": true,
+              "ifPhysAddress 1": true,
+              "ifPhysAddress 2": true,
+              "ifPhysAddress 3": true,
+              "ifType": true,
+              "ifType 1": true,
+              "ifType 2": true,
+              "ifType 3": true,
               "instance": true,
+              "instance 1": true,
+              "instance 2": true,
+              "instance 3": true,
               "job": true,
-              "mtxrInterfaceStatsIndex": true
+              "job 1": true,
+              "job 2": true,
+              "job 3": true,
+              "display_name": true,
+              "display_name 1": true,
+              "display_name 2": true,
+              "display_name 3": true
             },
             "indexByName": {
-              "Time": 12,
-              "Value #A": 16,
-              "Value #B": 3,
-              "Value #C": 8,
-              "Value #D": 9,
-              "Value #E": 6,
-              "Value #F": 4,
-              "Value #G": 7,
-              "Value #H": 11,
-              "Value #J": 18,
-              "__name__": 13,
-              "ifAlias": 10,
-              "ifIndex": 0,
-              "ifName": 2,
-              "ifPhysAddress": 5,
-              "ifType": 1,
-              "instance": 14,
-              "job": 15,
-              "mtxrInterfaceStatsIndex": 17
+              "ifName": 0,
+              "Value #A": 1,
+              "Value #B": 2,
+              "Value #C": 3
             },
             "renameByName": {
-              "Time": "",
-              "Value #A": "",
-              "Value #B": "Status link/states",
-              "Value #C": "RX Sum",
-              "Value #D": "TX Sum",
-              "Value #E": "Rate",
-              "Value #F": "Link down count",
-              "Value #G": "MTU",
-              "Value #H": "",
-              "Value #J": "",
-              "__name__": "",
-              "ifAlias": "Comment",
-              "ifIndex": "Int. index",
               "ifName": "Name",
-              "ifPhysAddress": "MAC",
-              "ifType": "Type of interface",
-              "instance": "",
-              "mtxrInterfaceStatsIndex": ""
+              "Value #A": "Status",
+              "Value #B": "Traffic In",
+              "Value #C": "Traffic Out"
             }
           }
         }

@@ -1551,7 +1551,7 @@
               "__name__ 1": true,
               "__name__ 2": true,
               "__name__ 3": true,
-              "ifAlias 1": true,
+              "ifAlias 1": false,
               "ifAlias 2": true,
               "ifAlias 3": true,
               "ifDescr": true,
@@ -1586,6 +1586,7 @@
             "indexByName": {
               "ifName": 0,
               "ifAlias": 1,
+              "ifAlias 1": 1,
               "Value #A": 2,
               "Value #B": 3,
               "Value #C": 4
@@ -1593,6 +1594,7 @@
             "renameByName": {
               "ifName": "Name",
               "ifAlias": "Comment",
+              "ifAlias 1": "Comment",
               "Value #A": "Status",
               "Value #B": "Traffic In",
               "Value #C": "Traffic Out"

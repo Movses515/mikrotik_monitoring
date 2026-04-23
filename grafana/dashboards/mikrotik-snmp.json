@@ -1277,7 +1277,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(ifHCInOctets{ifName=~'$Interface',instance='$instance'}[5m])*8",
+          "expr": "sum by (ifName) (irate(ifHCInOctets{ifName=~'$Interface',instance='$instance'}[5m])*8)",
           "legendFormat": "In",
           "range": true,
           "refId": "A"
@@ -1288,7 +1288,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(ifHCOutOctets{ifName=~'$Interface',instance='$instance'}[5m])*8",
+          "expr": "sum by (ifName) (irate(ifHCOutOctets{ifName=~'$Interface',instance='$instance'}[5m])*8)",
           "legendFormat": "Out",
           "range": true,
           "refId": "B"

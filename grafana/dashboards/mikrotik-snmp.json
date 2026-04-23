@@ -1148,11 +1148,11 @@
             },
             "indexByName": {
               "ifName": 0,
-              "ifAlias": 1,
-              "ifAlias 1": 1,
-              "Value #A": 2,
-              "Value #B": 3,
-              "Value #C": 4
+              "Value #A": 1,
+              "Value #B": 2,
+              "Value #C": 3,
+              "ifAlias": 4,
+              "ifAlias 1": 4
             },
             "renameByName": {
               "ifName": "Name",

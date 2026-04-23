@@ -12,17 +12,11 @@ modules:
       - sysLocation
       - ifTable
       - ifXTable
-      - ipAddrTable
       - hrSystemUptime
       - hrSystemDate
       - hrStorageTable
       - hrDeviceTable
       - hrProcessorTable
-      - mtxrHealth
-      - mtxrSystem
-      - mtxrLicense
-      - mtxrInterfaceStats
-      - mtxrPOE
 
     lookups:
       - source_indexes: [ifIndex]
@@ -61,12 +55,4 @@ modules:
       sysLocation:
         type: DisplayString
       sysContact:
-        type: DisplayString
-      mtxrLicVersion:
-        type: DisplayString
-      mtxrLicSoftwareId:
-        type: DisplayString
-      mtxrFirmwareVersion:
-        type: DisplayString
-      mtxrSerialNumber:
         type: DisplayString

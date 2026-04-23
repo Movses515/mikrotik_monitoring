@@ -48,7 +48,7 @@ groups:
   - name: mikrotik_system_alerts
     rules:
       - alert: HighCPULoad
-        expr: mtxrHlCpuLoad{job="mikrotik_snmp"} > 90
+        expr: avg without(hrDeviceIndex) (hrProcessorLoad{job="mikrotik_snmp"}) > 90
         for: 5m
         labels:
           severity: warning
@@ -63,10 +63,3 @@ groups:
         annotations:
           description: "Memory usage on {{ $labels.instance }} is {{ $value | printf \"%.1f\" }}%."
 
-      - alert: HighTemperature
-        expr: mtxrHlTemperature{job="mikrotik_snmp"} > 85
-        for: 2m
-        labels:
-          severity: critical
-        annotations:
-          description: "CPU temperature on {{ $labels.instance }} is {{ $value }}°C."

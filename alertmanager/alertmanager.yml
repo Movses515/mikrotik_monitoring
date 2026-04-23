@@ -2,7 +2,7 @@ global:
   resolve_timeout: 5m
 
 route:
-  group_by: ['alertname', 'routerboard_name']
+  group_by: ['alertname', 'instance']
   group_wait: 30s
   group_interval: 5m
   repeat_interval: 4h
@@ -18,8 +18,8 @@ receivers:
           {{ range .Alerts }}
           {{ if eq .Status "firing" }}🔴{{ else }}🟢{{ end }} <b>{{ .Labels.alertname }}</b>
           <b>Status:</b> {{ .Status | toUpper }}
-          {{ if .Labels.routerboard_name }}<b>Router:</b> {{ .Labels.routerboard_name }}{{ end }}
-          {{ if .Labels.name }}<b>Interface:</b> {{ .Labels.name }}{{ end }}
+          <b>Instance:</b> {{ .Labels.instance }}
+          {{ if .Labels.ifDescr }}<b>Interface:</b> {{ .Labels.ifDescr }}{{ end }}
           {{ if .Annotations.description }}{{ .Annotations.description }}{{ end }}
           {{ end }}
       - bot_token_file: '/run/secrets/telegram_bot_token'
@@ -29,7 +29,7 @@ receivers:
           {{ range .Alerts }}
           {{ if eq .Status "firing" }}🔴{{ else }}🟢{{ end }} <b>{{ .Labels.alertname }}</b>
           <b>Status:</b> {{ .Status | toUpper }}
-          {{ if .Labels.routerboard_name }}<b>Router:</b> {{ .Labels.routerboard_name }}{{ end }}
-          {{ if .Labels.name }}<b>Interface:</b> {{ .Labels.name }}{{ end }}
+          <b>Instance:</b> {{ .Labels.instance }}
+          {{ if .Labels.ifDescr }}<b>Interface:</b> {{ .Labels.ifDescr }}{{ end }}
           {{ if .Annotations.description }}{{ .Annotations.description }}{{ end }}
           {{ end }}

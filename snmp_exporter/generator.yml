@@ -17,6 +17,7 @@ modules:
       - hrStorageTable
       - hrDeviceTable
       - hrProcessorTable
+      - mtxrHealth
 
     lookups:
       - source_indexes: [ifIndex]

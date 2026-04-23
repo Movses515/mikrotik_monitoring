@@ -1301,3 +1301,11 @@ modules:
         labelname: ifName
         oid: 1.3.6.1.2.1.31.1.1.1.1
         type: DisplayString
+    - name: mtxrHlTemperature
+      oid: 1.3.6.1.4.1.14988.1.1.3.10
+      type: gauge
+      help: ' - 1.3.6.1.4.1.14988.1.1.3.10'
+    - name: mtxrHlProcessorTemperature
+      oid: 1.3.6.1.4.1.14988.1.1.3.11
+      type: gauge
+      help: ' - 1.3.6.1.4.1.14988.1.1.3.11'

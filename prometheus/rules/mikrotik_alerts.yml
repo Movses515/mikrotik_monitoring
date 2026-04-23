@@ -63,3 +63,11 @@ groups:
         annotations:
           description: "Memory usage on {{ $labels.instance }} is {{ $value | printf \"%.1f\" }}%."
 
+      - alert: HighTemperature
+        expr: mtxrHlProcessorTemperature{job="mikrotik_snmp"} / 10 > 85 or mtxrHlTemperature{job="mikrotik_snmp"} / 10 > 85
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          description: "CPU temperature on {{ $labels.instance }} is {{ $value | printf \"%.0f\" }}°C."
+
